@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>Station list of train: No. {{train._id}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead class="text-center table-dark">
+                    <tr>
+                        <th>Stations</th>
+                        <th>Arrival</th>
+                        <th>Departure</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let item of train.stations">
+                        <td>{{item.name}}</td>
+                        <td>{{item.arrival | date: 'HH:mm'}}</td>
+                        <td>{{item.departure | date: 'HH:mm'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button [routerLink]="['form']" class="m-auto d-block btn btn-danger">Buy Ticket</button>
+        </div>
+    </div>
+</div>

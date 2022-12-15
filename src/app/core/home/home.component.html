@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form>
+                <label>From: </label>
+                <select (change)="fromSelChange($event)" class="form-control">
+                    <option value="">Any</option>
+                    <option *ngFor="let station of stations" value="{{station.name}}">{{station.name}}</option>
+                </select>
+                <label>To: </label>
+                <select (change)="toSelChange($event)" class="form-control">
+                    <option value="">Any</option>
+                    <option *ngFor="let station of stations" value="{{station.name}}">{{station.name}}</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Number</td>
+                        <td>From</td>
+                        <td>Departure</td>
+                        <td>To</td>
+                        <td>Arrival</td>
+                        <td>Travels</td>
+                        <td>Type</td>
+                        <td>Price</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let train of trains.results">
+                        <td>{{train.number}}</td>
+                        <td>{{train.from}}</td>
+                        <td>{{train.departure}}</td>
+                        <td>{{train.to}}</td>
+                        <td>{{train.arrival}}</td>
+                        <td>{{train.travels}}</td>
+                        <td><img src="assets/images/{{train.type}}{{train.type == 'inter-city'? '.svg' : '.jpg'}}" alt="{{train.type}}"></td>
+                        <td>{{train.price}}</td>
+                        <td><button [routerLink]="[train._id]" class="btn btn-secondary">Details</button></td>
+                        <td><button [routerLink]="[train._id, 'form']"class="btn btn-danger">Buy Ticket</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
