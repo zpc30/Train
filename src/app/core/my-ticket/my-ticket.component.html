@@ -1,0 +1,34 @@
+<ngb-accordion *ngFor="let ticket of tickets.results; let i = index" #acc="ngbAccordion" activeIds="ngb-panel-0">
+	<ngb-panel title="{{ticket.from}} ({{ticket.departure | date: 'dd.MM.yyyy HH:mm'}}) - {{ticket.to}} ({{ticket.arrival | date: 'dd.MM.yyyy HH:mm'}})">
+		<ng-template ngbPanelContent let-opened="opened">
+            <div class="row">
+                <div class="col-9">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Train Number: </th>
+                                <td>{{ticket.number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Price: </th>
+                                <td>{{ticket.price}}</td>
+                            </tr>
+                            <tr>
+                                <th>Name: </th>
+                                <td>{{ticket.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Birth Date: </th>
+                                <td>{{ticket.birthDate | date: 'dd.MM.yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col">
+                    <img width="100%" src="assets/images/qr.png" alt="">
+                </div>
+            </div>
+            <button (click)="onCancel(ticket._id)" class="btn btn-danger">Cancel</button>
+		</ng-template>
+	</ngb-panel>
+</ngb-accordion>

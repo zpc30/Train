@@ -1,0 +1,45 @@
+<form [formGroup]="form" class="col-lg-8 offset-lg-3 ">
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+                <label>Train Number</label>
+                <input formControlName="number" type="text" class="form-control" value="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label>From:</label>
+                <input formControlName="from" type="text" class="form-control" value="">
+            </div>
+            <div class="col-4">
+                <label>Departure: </label>
+                <input formControlName="departure" type="text" class="form-control" value="{{train.departure |date: 'yyyy-MM-dd HH:mm'}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label>To</label>
+                <input formControlName="to" type="text" class="form-control" value="">
+            </div>
+            <div class="col-4">
+                <label>Arrival</label>
+                <input formControlName="arrival" type="text" class="form-control" value="{{train.arrival |date: 'yyyy-MM-dd HH:mm'}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <label for="">Price</label>
+                <input formControlName="price" type="text" class="form-control">
+                <label for="">Name</label>
+                <input formControlName="name" type="text" class="form-control">
+                <label for="">Birth Date:</label>
+                <input formControlName="birthDate" type="date" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-5 offset-lg-3">
+                <button (click)="onBuy()" class="btn btn-danger">Buy Ticket</button>
+            </div>
+        </div>
+    </div>
+</form>
